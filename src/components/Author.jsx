@@ -1,3 +1,4 @@
+import ReactPlayer from "react-player";
 import { useQuery } from "react-query";
 
 const fetchAuthor = async () => {
@@ -20,8 +21,40 @@ const Author = () => {
   const baseUrl =
     import.meta.env.VITE_APP_IMAGE_BASE_URL || "http://localhost:5000"; // Accessing environment variable
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error occured ...</div>;
+  if (isLoading)
+    return (
+      <img
+        className="w-24 h-24 flex items-center justify-center"
+        src="https://media4.giphy.com/media/cge9nG7e7wKWbMm9cY/giphy.gif?cid=ecf05e47ctuj33xll4tkqn6oq202408knictzr0nj8bprk4t&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+        alt=""
+      />
+    );
+  if (isError)
+    return (
+      <div className="w-full h-auto rounded-lg max-w-[320px] lg:max-w-[420px] overflow-hidden mt-4">
+        <ReactPlayer
+          url="https://media0.giphy.com/media/vboZVH1oDiLdctj4V3/giphy360p.mp4"
+          playing={true}
+          loop={true}
+          muted={true}
+          width="100%"
+          height="100%"
+          controls={false} // Disable default browser controls
+          config={{
+            file: {
+              attributes: {
+                poster:
+                  "https://media2.giphy.com/media/km7QNaRa2LW4FxeWDW/200.gif",
+              },
+            },
+          }}
+        />
+      </div>
+    );
+
+  // https://media0.giphy.com/media/vboZVH1oDiLdctj4V3/giphy360p.mp4
+
+  // https://media2.giphy.com/media/km7QNaRa2LW4FxeWDW/200.gif
 
   return (
     <div>

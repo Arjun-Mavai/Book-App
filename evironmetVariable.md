@@ -176,3 +176,38 @@ const Book = () => {
 - This base URL can be stored in an `.env` file and accessed via `process.env`.
 
 By doing this, you can easily switch between different environments (like local development and production on Vercel) without changing the `db.json` file. 🚀
+
+
+# ########### adding env variable in netlify
+
+In the context of your Book App, the environment variable `VITE_APP_IMAGE_BASE_URL` is used to specify the base URL for your images. This is particularly useful for differentiating between development and production environments.
+
+### 📚 What Does Each Part Mean? 📚
+
+- **VITE_APP_IMAGE_BASE_URL**: This is the key, or the name of the variable.
+- **http://localhost:5000**: This is the value, or the actual URL where your images are hosted during development.
+
+### 🎭 Analogies 🎭
+
+- **VITE_APP_IMAGE_BASE_URL**: Think of this as a bookmark in your browser.
+- **http://localhost:5000**: This is the actual website that the bookmark takes you to.
+
+### 🌟 Use-Case in Book App 🌟
+
+When you're developing locally, your images might be served from `http://localhost:5000`. But in production, they might come from a different URL, say `https://your-production-site.com`. By using an environment variable, you can easily switch between these without changing the code in your components.
+
+For example, in your `Book.js` component, you might have something like:
+
+```javascript
+<img src={`${process.env.VITE_APP_IMAGE_BASE_URL}/public/images/${datum.photo}`} alt="book cover" />
+```
+
+### 📝 Summary 📝
+
+1. **Key (VITE_APP_IMAGE_BASE_URL)**: It's the identifier for the base URL where images are stored.
+2. **Value (http://localhost:5000)**: The actual base URL during development.
+3. **Flexibility**: Allows you to switch between different environments easily.
+4. **Security**: Keeps sensitive information like base URLs secure.
+5. **Code Maintainability**: You don't have to hardcode URLs, making it easier to manage and update.
+
+By using environment variables like `VITE_APP_IMAGE_BASE_URL`, you can make your application more flexible and easier to manage. 🌈
