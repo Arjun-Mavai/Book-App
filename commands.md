@@ -92,6 +92,32 @@ my-library-app/
 6. pnpm run server // Your mock server will now be running at http://localhost:5000.
 
 7. pnpm run dev     ---------- command to run the project in dev mode
+8. pnpm install react-player // for react player
+9. pnpm install antd --save // for antd design dropdown
+10. pnpm install @ant-design/icons --save
 
+
+
+
+
+##  
+Root Directory:
+
+    node_modules/: Dependencies
+    public/: Static assets like images
+    src/: Source code
+    db.json: Mock database file
+    index.html: Entry HTML file
+    package.json: Project metadata and dependencies
+    vite.config.js: Vite configuration
+
+Inside src/:
+
+    components/: Reusable UI components (e.g., BookCard.jsx)
+    pages/: Route-specific components (e.g., Home.jsx)
+
+    Analogy:
+
+Imagine you're baking a cake (building a component) and you need sugar (another component). You go to the kitchen cabinet (import statement) to get the sugar (Button component).
 
 
