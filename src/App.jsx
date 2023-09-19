@@ -14,7 +14,7 @@ import Sidebar from "./components/Sidebar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Book from "./components/Book";
 import Author from "./components/Author";
-import "./styles/main.css";
+// import "./styles/main.css";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -25,14 +25,14 @@ const queryClient = new QueryClient();
 
 const Layout = () => {
   return (
-    <div className="main ">
-      <div className="header col-span-4">
+    <div className="main h-screen grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-800 text-white h-full">
+      <div className="header  p-4 col-span-3">
         <Header className="" />
       </div>
-      <div className="container col-span-1 row-span-2">
-        <div className="menuContainer  ">
-          <Sidebar />
-        </div>
+      <div className="menuContainer flex h-full  ">
+        <Sidebar />
+      </div>
+      <div className="container bg-slate-600 p-4 col-span-2 row-span-2 rounded-md">
         <div className="contentContainer  col-span-[2/4]">
           <ErrorBoundary>
             <Suspense fallback={<div>Loading...</div>}>
@@ -41,7 +41,7 @@ const Layout = () => {
           </ErrorBoundary>
         </div>
       </div>
-      <div className="footer col-span-4">
+      <div className="footer bg-amber-600 col-span-3">
         <Footer className="" />
       </div>
     </div>
@@ -55,8 +55,9 @@ function App() {
       element: <Layout />,
       children: [
         { path: "/login", element: <Login /> },
-        { path: "/about", element: <About /> },
-        { path: "/authors", element: <Author /> },
+        { path: "/", element: <About /> },
+        { path: "/authors", element: <Author /> }, // here query key and path when i made the same code worked
+        //it fetched the data from the server
         { path: "/books", element: <Book /> },
         { path: "*", element: <NotFound /> },
         { path: "/projects", element: <Projects /> },

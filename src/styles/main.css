@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .main{
+    @apply{
+        h-screen grid-rows-3 
+         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:flex-row bg-gradient-to-r from-red-300 to-amber-500
+    }
+} */
+
+span{
+    @apply bg-gradient-to-r from-[#ff7170] to-[#ffe57f] bg-clip-text text-transparent  text-lg shadow-lg text font-bold
+}
+
+p{
+  @apply  bg-gradient-to-r  from-blue-400 to-amber-500 bg-clip-text text-transparent  text-lg shadow-lg text font-bold
+}
+
+@layer components {
+    .text {
+      /* your custom styles here */
+      color: red;
+      font-size: 16px;
+    }
+  }
+  
+
+
+

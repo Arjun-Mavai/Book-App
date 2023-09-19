@@ -1,11 +1,66 @@
 {
+  
     "books": [
-      {"id": 1, "title": "Book 1"},
-      {"id": 2, "title": "Book 2"}
+      {
+        "id": 1,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "photo": "./public/images/catcher.jpg",
+        "summary": "A classic novel exploring teenage rebellion and alienation."
+      },
+      {
+        "id": 2,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "photo": "./public/images/mockingBird.jpg",
+        "summary": "A powerful story of racial injustice and moral growth in the American South."
+      },
+      {
+        "id": 3,
+        "title": "1984",
+        "author": "George Orwell",
+        "photo": "./public/images/1984.jpg",
+        "summary": "A dystopian novel depicting a totalitarian regime and the fight for individual freedom."
+      },
+      {
+        "id": 4,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "photo": "./public/images/pride.jpg",
+        "summary": "A timeless classic of love, manners, and societal expectations."
+      },
+      {
+        "id": 5,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "photo": "./public/images/gatsby.jpg",
+        "summary": "A tale of wealth, decadence, and unfulfilled dreams in 1920s America."
+      }
     ],
+  
+  
+
+
+
+
     "authors": [
-      {"id": 1, "name": "Author 1"},
-      {"id": 2, "name": "Author 2"}
+      {"id": 1, "name": "Author 1","phil": "Osho", "image":"./public/images/osho.jpg", 
+      "text": "The real question is not whether life exists after death. The real question is whether you are alive before death."},
+      {"id": 2, "name": "Author 2", "phil": "Jiddu Krishnamurthy", 
+      "text": "Don't be attached to anything in this world. You come with nothing, you go with nothing.",
+    "image":"./public/images/jk.png"},
+      {
+        "id": 3,
+        "phil": "Arjun", 
+        "text": "Don't be attached to anything in this world. You come with nothing, you go with nothing.",
+        "image":"./public/images/arjun.jpg"
+      },
+      {
+        "id": 4,
+        "phil": "Jiddu Krishnamurthy",
+        "image":"./public/images/jk.png",
+        "text": "Don't be attached to anything in this world. You come with nothing, you go with nothing."
+      }
     ]
   }
   
