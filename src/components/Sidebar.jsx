@@ -43,7 +43,7 @@ const Sidebar = () => {
           ["Home", "/"],
           ["Books", "/books"],
           ["Authors", "/authors"],
-          ["Not Found", "/reports"],
+          ["Not Found", "*"], // updated from reports to "*" to take all paths
           ["About Project", "/projects"],
         ].map(([title, url], id) => (
           // earlier i was using id in ([title ,url, id,])
