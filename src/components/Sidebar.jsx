@@ -46,6 +46,7 @@ const Sidebar = () => {
           ["Not Found", "/reports"],
           ["About Project", "/projects"],
         ].map(([title, url], id) => (
+          // earlier i was using id in ([title ,url, id,])
           <div className="link " key={id}>
             <Link
               key={id}

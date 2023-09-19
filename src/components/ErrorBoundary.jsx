@@ -16,7 +16,13 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <img
+          src="https://media1.giphy.com/media/qaDbEDavgvKBs5jJc5/giphy.gif?cid=ecf05e47br99glejgtnw8s5mwm21z8m8gd95z9u1c5uq5anb&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+          alt=""
+        />
+      );
+      // <h1>Something went wrong.</h1>;
     }
 
     return this.props.children;

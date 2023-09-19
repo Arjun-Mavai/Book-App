@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div>
-      Page not Found ::{" "}
+      <h1 className="text-2xl">Page not Found</h1>{" "}
       <span className="bg-gradient-to-r from-[#ff7170] to-[#ffe57f]  bg-clip-text text-transparent font-extrabold text-lg shadow-lg">
         Welcome To Arjun Gurjar Web App
       </span>
-      . Till then enjoy this remove bg photo video
+      . Till then enjoy this remove bg video
       <div className="w-full h-auto rounded-lg max-w-[320px] lg:max-w-[420px] overflow-hidden mt-4">
         <ReactPlayer
           url="https://sb.kaleidousercontent.com/67418/x/9289c7b8dd/manuel_compressed.mp4"
