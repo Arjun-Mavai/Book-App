@@ -43,17 +43,17 @@ const items: MenuProps["items"] = [
         rel="noopener noreferrer"
         href="https://arjun-mavai.github.io/Responsive-Portfolio/"
       >
-        My PortFolio
+        My Portfolio
         {/* (disabled) */}
       </a>
     ),
     disabled: false,
   },
-  {
-    key: "4",
-    danger: true,
-    label: "a danger item",
-  },
+  // {
+  //   key: "4",
+  //   danger: true,
+  //   label: "a danger item",
+  // },
 ];
 
 const Drops = () => {
