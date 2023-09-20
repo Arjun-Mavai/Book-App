@@ -24,7 +24,7 @@ const Author = () => {
   if (isLoading)
     return (
       <img
-        className="w-24 h-24 flex items-center justify-center"
+        className="w-full h-auto rounded-lg max-w-[320px] lg:max-w-[420] overflow-hidden mt-4 flex items-center justify-center"
         src="https://media4.giphy.com/media/cge9nG7e7wKWbMm9cY/giphy.gif?cid=ecf05e47ctuj33xll4tkqn6oq202408knictzr0nj8bprk4t&ep=v1_gifs_search&rid=giphy.gif&ct=g"
         alt=""
       />
