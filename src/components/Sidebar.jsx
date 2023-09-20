@@ -45,6 +45,7 @@ const Sidebar = () => {
           ["Authors", "/authors"],
           ["Not Found", "*"], // updated from reports to "*" to take all paths
           ["About Project", "/projects"],
+          ["Carousel", "/slide"],
         ].map(([title, url], id) => (
           // earlier i was using id in ([title ,url, id,])
           <div className="link " key={id}>

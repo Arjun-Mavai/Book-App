@@ -662,3 +662,15 @@ Here's a list of 50+ Tailwind CSS classes that can be used to design various com
 
 
 # ###########
+
+# https://dev.to/sucodelarangela/diferencas-entre-display-none-opacity-0-e-visibility-hidden-30b0
+
+opacity : 0 , is like visibility:hidden  its transparent , element is in the DOM but not seen
+Dungeons And Dragons Dnd GIF
+
+like display none usually it is either block or inline
+display: noneremoves the element (and its children) from the DOM
+hey applied display: none to Nick Fury search animation from movie
+nick fury infinity war gif
+
+![Alt text](image.png)
