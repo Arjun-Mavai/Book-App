@@ -95,6 +95,8 @@ my-library-app/
 8. pnpm install react-player // for react player
 9. pnpm install antd --save // for antd design dropdown
 10. pnpm install @ant-design/icons --save
+11. pnpm install dotenv --save-dev // information available below , and put the .env in gitignore
+
 
 
 
@@ -119,5 +121,23 @@ Inside src/:
     Analogy:
 
 Imagine you're baking a cake (building a component) and you need sugar (another component). You go to the kitchen cabinet (import statement) to get the sugar (Button component).
+
+
+
+# #############  
+Use dotenv (Optional):
+If you want to continue using the dotenv package in your local development environment to load environment variables from the .env file, follow these steps:
+
+Install the dotenv package as a development dependency:
+
+bash
+Copy code
+npm install dotenv --save-dev
+In your main application file (e.g., index.js or App.js), import and configure dotenv at the top:
+
+javascript
+Copy code
+require('dotenv').config();
+This step ensures that your local development environment can still access the environment variables from the .env file.
 
 

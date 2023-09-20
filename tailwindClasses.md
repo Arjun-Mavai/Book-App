@@ -465,6 +465,13 @@ Imagine your project as a tree, and let's add more branches and leaves.
 |-- 🍃 package.json (Leaf)
 ```
 
+
+The src directory contains our application's source code.
+Within src, we have components and pages directories to organize React components.
+There's also an images directory to store images.
+The public directory contains static assets like HTML files.
+
+
 ### Importing Files
 
 #### Importing `Button.jsx` into `About/index.jsx`
@@ -535,6 +542,20 @@ I hope this extended tree analogy helps you visualize the file structure and how
 In this structure, if you are in `Projects.jsx` and you want to import `main.css`, the path would be `../styles/main.css`.
 
 I hope this clears up your issues! Let me know if you have further questions.
+
+// Relative path to an image in the same directory
+const imageUrl = './logo.png';
+
+// Relative path to an image in a subdirectory
+const imageUrl = '../images/logo.png';
+
+Analogy 📚
+
+Imagine you're in a library 📖, and you want to find a specific book. There are two ways to describe its location:
+
+Absolute Location: You provide the library's GPS coordinates and floor number to pinpoint the book's exact location, regardless of where you are in the library.
+
+Relative Location: You tell someone to start from their current location, take two left turns, and go up one floor to find the book. This relies on your current position within the library.
 
 
 # #############

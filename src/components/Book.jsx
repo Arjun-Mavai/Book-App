@@ -1,3 +1,4 @@
+import ReactPlayer from "react-player";
 import { useQuery } from "react-query";
 
 const fetchBooks = async () => {
@@ -34,7 +35,28 @@ const Book = () => {
         alt=""
       />
     );
-  if (isError) return <div>Error occured ...</div>;
+  if (isError)
+    return (
+      <div className="w-full h-auto rounded-lg max-w-[320px] lg:max-w-[420px] overflow-hidden mt-4">
+        <ReactPlayer
+          url="https://media0.giphy.com/media/vboZVH1oDiLdctj4V3/giphy360p.mp4"
+          playing={true}
+          loop={true}
+          muted={true}
+          width="100%"
+          height="100%"
+          controls={false} // Disable default browser controls
+          config={{
+            file: {
+              attributes: {
+                poster:
+                  "https://media2.giphy.com/media/km7QNaRa2LW4FxeWDW/200.gif",
+              },
+            },
+          }}
+        />
+      </div>
+    );
 
   return (
     <div>
