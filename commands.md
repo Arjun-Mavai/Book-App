@@ -96,6 +96,7 @@ my-library-app/
 9. pnpm install antd --save // for antd design dropdown
 10. pnpm install @ant-design/icons --save
 11. pnpm install dotenv --save-dev // information available below , and put the .env in gitignore
+12. pnpm add -g pnpm  // to update the pnpm
 
 
 
@@ -141,3 +142,10 @@ require('dotenv').config();
 This step ensures that your local development environment can still access the environment variables from the .env file.
 
 
+# #######
+
+Command Explanation: cd /d C:\
+
+cd: This is a command in the Command Prompt (Windows) or Terminal (Linux/Unix) that stands for "Change Directory." It's used to navigate between folders or directories.
+/d: This is an option or switch for the cd command in Windows. It tells the command to also change the current drive letter. In this case, it's specifying that we want to switch to the "C:" drive.
+C:\: This is the path or location we want to navigate to. In this case, it represents the root directory of the "C:" drive.

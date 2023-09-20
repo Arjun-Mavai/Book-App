@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "server": "json-server --watch db.json --port 5000",
+    "minify": "terser src/js/app.jsx -c -m --output src/minified/app.min.jsx",
+
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

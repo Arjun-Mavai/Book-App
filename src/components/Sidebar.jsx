@@ -38,7 +38,7 @@ const Sidebar = () => {
           </li>
         </ul> */}
 
-      <nav className="flex flex-col gap-6 h-screen sm:flex-col md:flex-col ">
+      <nav className="flex flex-col gap-6 h-full sm:flex-col md:flex-col ">
         {[
           ["Home", "/"],
           ["Books", "/books"],
