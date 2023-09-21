@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
 import "../styles/main.css";
 
 const Sidebar = () => {
@@ -71,7 +72,8 @@ const Sidebar = () => {
         </nav>
         <div className="flex md:hidden z-50 " onClick={handleChange}>
           <div className="p-2">
-            <AiOutlineMenu size={32} />
+            {!menu ? <AiOutlineMenu size={32} /> : <AiOutlineClose size={32} />}
+            {/* intially menu false so showing close icon so i did !menu toggled it */}
           </div>
           <div
             className={`mobileMenu ${
