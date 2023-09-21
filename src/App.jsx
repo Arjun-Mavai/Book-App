@@ -9,12 +9,12 @@ import {
 
 import Footer from "./components/Footer";
 import ErrorBoundary from "./components/ErrorBoundary";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Book from "./components/Book";
 import Author from "./components/Author";
-import { Slider } from "antd"; // i actually used it as my component name this one got rendered here from antd
+// import { Slider } from "antd"; // i actually used it as my component name this one got rendered here from antd
 import ImageCar from "./pages/Slider";
 // import "./styles/main.css";
 
@@ -29,13 +29,11 @@ const Layout = () => {
   return (
     <div className="main h-screen grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-800 text-white h-full">
       <div className="header  p-4 col-span-3">
-        <Header className="" />
-      </div>
-      <div className="menuContainer flex h-full  ">
         <Sidebar />
       </div>
-      <div className="container bg-slate-600 p-4 col-span-2 row-span-2 rounded-md">
-        <div className="contentContainer  col-span-[2/4]">
+      {/* <div className="menuContainer flex h-full  "></div>  earlier it is for sidebar above one for header*/}
+      <div className="container bg-slate-600 p-4 col-span-3 row-span-2 rounded-md">
+        <div className="contentContainer  col-span-[1/3]">
           <ErrorBoundary>
             <Suspense fallback={<div>Loading...</div>}>
               <Outlet />

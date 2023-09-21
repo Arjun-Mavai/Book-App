@@ -26,6 +26,9 @@ p{
     }
   }
   
+  Link{
+    @apply hover:text-green-600 transition-all cursor-pointer duration-300
+  }
 
 
 

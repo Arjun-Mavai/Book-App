@@ -52,7 +52,7 @@ const ImageCar = () => {
         {/* Conditionally render image if hover is not null */}
         {hover !== null && (
           <img
-            className="w-full h-auto top-10 sm: md:top-0 absolute bottom-[250px] right-1 rounded-lg max-w-[320px] lg:max-w-[420] overflow-hidden mt-4 flex items-center justify-center"
+            className="w-full h-auto top-[200px] sm: md:top-0 absolute bottom-[250px] right-1 rounded-lg max-w-[320px] lg:max-w-[420] overflow-hidden mt-4 flex items-center justify-center"
             src={items[hover].quote}
             alt=""
           />
