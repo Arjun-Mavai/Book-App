@@ -13,8 +13,8 @@ const fetchBooks = async () => {
 
 const Book = () => {
   const { data, isLoading, isError } = useQuery("books", fetchBooks);
-  // const baseUrl =
-  // import.meta.env.VITE_APP_IMAGE_BASE_URL || "http://localhost:5000"; // Accessing environment variable
+  const baseUrl =
+    import.meta.env.PROD.VITE_APP_IMAGE_BASE_URL || "http://localhost:5000"; // Accessing environment variable
 
   // if (process.env.REACT_APP_MY_VARIABLE) {
   //   // Access the environment variable
@@ -62,16 +62,16 @@ const Book = () => {
     <div>
       <ul>
         {data.map((datum) => {
-          // const imageUrl = `${baseUrl}${datum.photo}`;
+          const imageUrl = `${baseUrl}${datum.photo}`;
 
           return (
             <li key={datum.id} className="flex flex-col gap-2 bg-gray-900 p-4">
               <div className="img">
-                {/* <img
+                <img
                   src={imageUrl} // issue was src="{}" didn't remove the " "
                   alt=""
                   className="h-24 w-24 rounded-full mt-2"
-                /> */}
+                />
               </div>
               <div className="title flex gap-2">
                 <p

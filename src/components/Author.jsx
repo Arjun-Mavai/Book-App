@@ -18,7 +18,9 @@ const Author = () => {
   const { data, isLoading, isError } = useQuery("authors", fetchAuthor);
   // using books query here rather than author , mistake caught "books"=> changed to authors
 
-  // const baseUrl = import.meta.env.VITE_APP_IMAGE_BASE_URL || "http://localhost:5000"; // Accessing environment variable
+  const baseUrl =
+    import.meta.env.PROD.VITE_APP_IMAGE_BASE_URL || "http://localhost:5000"; // Accessing environment variable
+  // console.log(import.meta.env.VITE_APP_IMAGE_BASE_URL);
 
   if (isLoading)
     return (
@@ -59,7 +61,7 @@ const Author = () => {
     <div>
       <ul>
         {data.map((author) => {
-          // const imageUrl = `${baseUrl}${author.image}`;
+          const imageUrl = `${baseUrl}${author.image}`;
 
           return (
             <li
@@ -67,11 +69,11 @@ const Author = () => {
               className="flex flex-col gap-2 bg-slate-900 p-4 "
             >
               <div className="img">
-                {/* <img
+                <img
                   src={imageUrl} // issue was src="{}" didn't remove the " "
                   alt="/images/osho.jpg"
                   className="h-24 w-24 rounded-full mt-2"
-                /> */}
+                />
               </div>
               <div className="title flex gap-2">
                 <p
