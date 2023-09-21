@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { TypeAnimation } from "react-type-animation";
 
 import "../styles/main.css";
 
@@ -13,7 +14,7 @@ const Sidebar = () => {
 
   return (
     <div className=" ">
-      <div className="container flex flex-row justify-between p-5 md:px-32  shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+      <div className=" mb-4 container flex flex-row justify-between p-5 md:px-32  shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         {/* <ul>
           <li className="flex flex-col gap-5 h-screen sm:flex-col md:flex-col">
             <Link
@@ -49,11 +50,11 @@ const Sidebar = () => {
           </li>
         </ul> */}
 
-        <div className="title font-semibold text-2xl p-1 cursor-pointer ">
+        <div className="title font-semibold text-2xl p-1 cursor-pointer tracking-wide  ">
           Arjun.
         </div>
 
-        <nav className="hidden  md:flex gap-5 font-medium p-1 cursor-pointer ">
+        <nav className="hidden border border-transparent  md:flex gap-5 font-medium p-1 cursor-pointer ">
           {[
             ["Home", "/"],
             ["Books", "/books"],
@@ -63,7 +64,10 @@ const Sidebar = () => {
             ["Carousel", "/slide"],
           ].map(([title, url], id) => (
             // earlier i was using id in ([title ,url, id,])
-            <div className="link " key={id}>
+            <div
+              className="text-gradient uppercase    link leading-10 tracking-wide   rounded-lg "
+              key={id}
+            >
               <Link key={id} to={url} className="   ">
                 {title}
               </Link>
@@ -80,7 +84,7 @@ const Sidebar = () => {
               menu ? "translate-x-0" : " -translate-x-full"
             } md:hidden flex flex-col absolute bg-slate-900 left-0 top-20 font-medium text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
           >
-            <nav className="  md:flex gap-5 font-medium p-1 cursor-pointer ">
+            <nav className="  md:flex gap-5 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
               {[
                 ["Home", "/"],
                 ["Books", "/books"],
@@ -90,7 +94,7 @@ const Sidebar = () => {
                 ["Carousel", "/slide"],
               ].map(([title, url], id) => (
                 // earlier i was using id in ([title ,url, id,])
-                <div className="link " key={id}>
+                <div className="link leading-10  " key={id}>
                   <Link key={id} to={url} className="   ">
                     {title}
                   </Link>
@@ -100,6 +104,25 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+
+      <TypeAnimation
+        sequence={[
+          // Same substring at the start will only be typed out once, initially
+          "FRONTEND DEVELOPER",
+          1000, // wait 1s before replacing "Mice" with "Hamsters"
+          "WEB DESIGNER",
+          1000,
+          "QUORA WRITER",
+          1000,
+          "AVID READER",
+          1000,
+        ]}
+        wrapper="span"
+        speed={50}
+        className=" text-3xl font-semibold bg-gradient-to-r inline-block from-[#ff7170] to-[#ffe57f] bg-clip-text text-transparent "
+        // style={{ fontSize: "2em", display: "inline-block" }}
+        repeat={Infinity}
+      />
     </div>
   );
 };

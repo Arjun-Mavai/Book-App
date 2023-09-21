@@ -10,12 +10,12 @@
     }
 } */
 
-span{
-    @apply bg-gradient-to-r from-[#ff7170] to-[#ffe57f] bg-clip-text text-transparent  text-lg shadow-lg text font-bold
+.my-span{
+    @apply font-sans leading-10  md:leading-6 tracking-wide  bg-gradient-to-r from-[#ff7170] to-[#ffe57f] bg-clip-text text-transparent   text-lg shadow-lg text font-bold
 }
 
-p{
-  @apply  bg-gradient-to-r  from-blue-400 to-amber-500 bg-clip-text text-transparent  text-lg shadow-lg text font-bold
+.my-paragraph{
+  @apply font-sans leading-10 md:leading-6 tracking-tight   bg-gradient-to-r  from-blue-400 to-amber-500 bg-clip-text text-transparent  text-lg shadow-lg text font-bold
 }
 
 @layer components {
@@ -31,4 +31,28 @@ p{
   }
 
 
+  /* @apply Directive: A feature in Tailwind CSS that allows you to create custom utility classes.
 
+  Utility Classes: These are the building blocks in Tailwind CSS, designed to be used directly in your HTML.
+
+  Custom Utility Classes: These are user-defined classes that use the @apply directive to combine multiple utility classes into one. */
+
+
+  .gradient-border {
+    position: relative;
+  }
+  
+  .gradient-border:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(to right, red, amber);
+    clip-path: content-box; /* Important */
+    padding: 2px; /* Border Width */
+  }
+  

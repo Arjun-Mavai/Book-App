@@ -1,4 +1,5 @@
 import Drops from "../components/Drop";
+// import Typewriter from "../components/Typewriter";
 
 const About = () => {
   return (

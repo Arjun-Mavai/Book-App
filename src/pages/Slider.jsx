@@ -27,7 +27,7 @@ const ImageCar = () => {
 
   // JSX for the component
   return (
-    <div className="flex relative gap-4 p-4 bg-slate-900 h-screen">
+    <div className="flex relative gap-4 p-4 bg-slate-900 h-screen rounded-lg">
       {/* Sidebar section */}
       <div className="sidebar w-1/4">
         {/* Loop through each item */}
