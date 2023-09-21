@@ -104,7 +104,8 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-
+      <span className="text-3xl font-semibold mb-1">Hi I'm Arjun Gurjar </span>{" "}
+      <br />
       <TypeAnimation
         sequence={[
           // Same substring at the start will only be typed out once, initially
