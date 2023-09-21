@@ -3,7 +3,7 @@ import "../styles/main.css";
 
 const Projects = () => {
   return (
-    <div className="project flex gap-4 flex-col">
+    <div className="project flex gap-4 flex-col bg-slate-950 h-screen p-4">
       <h1 className="tracking-wider font-bold text-2xl">
         Use of TechStack in this WebApp
       </h1>
