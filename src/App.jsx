@@ -27,7 +27,7 @@ const queryClient = new QueryClient();
 
 const Layout = () => {
   return (
-    <div className="main h-screen grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-800 text-white h-full">
+    <div className="main h-screen grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-950 text-white h-full">
       <div className="header  p-4 col-span-3">
         <Sidebar />
       </div>
@@ -41,7 +41,7 @@ const Layout = () => {
           </ErrorBoundary>
         </div>
       </div>
-      <div className="footer bg-amber-600 col-span-3">
+      <div className="footer bg-slate-950 col-span-3 bottom-0 flex  flex-col-reverse p-2 ">
         <Footer className="" />
       </div>
     </div>

@@ -13,7 +13,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className=" ">
+    <div className=" bg-slate-950 max-h-full">
       <div className=" mb-4 container flex flex-row justify-between p-5 md:px-32  shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         {/* <ul>
           <li className="flex flex-col gap-5 h-screen sm:flex-col md:flex-col">
