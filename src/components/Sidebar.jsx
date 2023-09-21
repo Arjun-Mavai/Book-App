@@ -69,7 +69,7 @@ const Sidebar = () => {
             </div>
           ))}
         </nav>
-        <div className="flex md:hidden " onClick={handleChange}>
+        <div className="flex md:hidden z-50 " onClick={handleChange}>
           <div className="p-2">
             <AiOutlineMenu size={32} />
           </div>
