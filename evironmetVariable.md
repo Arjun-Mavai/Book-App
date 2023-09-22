@@ -229,4 +229,15 @@ Switching Branches: Git enforces a rule that you can't switch branches if you ha
 
 Temporary Interruptions: Sometimes, you may need to stop working on your current task to address an urgent issue. Stashing your changes allows you to put your work aside temporarily and come back to it later.
 
-Experimenting: You might want to experiment with a different approach or solution while keeping your current work intact.
+Experimenting: You might want to experiment with a different approach or solution while keeping your current work intact.CSS & Design Systems
+
+    Week 7: Learn CSS, Flexbox, Grid.
+    Week 8: Get hands-on with Tailwind CSS and Material-UI.
+
+4. Tooling
+
+    Week 9: Learn Webpack, Babel, and ESLint.
+
+5. Testing
+
+    Week 10: Learn Jest and React Testing Library.

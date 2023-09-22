@@ -62,6 +62,7 @@ const Sidebar = () => {
             ["Not Found", "*"], // updated from reports to "*" to take all paths
             ["About Project", "/projects"],
             ["Carousel", "/slide"],
+            ["Quiz", "/quiz"],
           ].map(([title, url], id) => (
             // earlier i was using id in ([title ,url, id,])
             <div
@@ -92,6 +93,7 @@ const Sidebar = () => {
                 ["Not Found", "*"], // updated from reports to "*" to take all paths
                 ["About Project", "/projects"],
                 ["Carousel", "/slide"],
+                ["Quiz", "/quiz"],
               ].map(([title, url], id) => (
                 // earlier i was using id in ([title ,url, id,])
                 <div className="link leading-10  " key={id}>
