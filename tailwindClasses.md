@@ -673,4 +673,57 @@ display: noneremoves the element (and its children) from the DOM
 hey applied display: none to Nick Fury search animation from movie
 nick fury infinity war gif
 
-![Alt text](image.png)
+![Alt text](image.png)\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+**Box Sizing:**
+
+In CSS, the `box-sizing` property defines how an element's total width and height are calculated, including its content, padding, and border. There are two common values for `box-sizing`:
+
+1. `box-sizing: content-box;` (Default)
+   - In the default `content-box` mode, an element's width and height are calculated based on its content area only.
+   - Padding and border are added to the specified width and height. This means that if you set a width of 200px, any padding and border will be added to that 200px, potentially making the element wider than you expected.
+
+2. `box-sizing: border-box;`
+   - In the `border-box` mode, an element's width and height include its content, padding, and border.
+   - This means that if you set a width of 200px in `border-box` mode, the padding and border are included within that 200px, ensuring that the element's total size remains 200px.
+
+**Real-Life Analogy:**
+
+Imagine you're packing a suitcase:
+
+- In `content-box` mode, you have a suitcase with a fixed size (width and height). You put items inside it (your content), and then you add some padding (extra space around the content) and a border (a boundary around the suitcase). Your suitcase may become larger to accommodate these additional layers, making it bigger than you initially planned.
+
+- In `border-box` mode, you still have a fixed-size suitcase, but this time, the suitcase's size includes everything: the content, the padding, and the border. So, when you add padding and a border, the suitcase remains the same size, and you don't have to worry about it becoming larger unexpectedly.
+
+**Use Cases:**
+
+1. **Content Layout:** In web design, `border-box` is often preferred because it simplifies layout calculations. When you set a width, you can be sure that the element won't unexpectedly overflow its container due to padding and border.
+
+2. **Responsive Design:** When creating responsive designs, `border-box` can make it easier to manage element sizes. You can set percentage-based widths, and the element will adapt while keeping its padding and border within the specified width.
+
+3. **Frameworks and Libraries:** Many CSS frameworks and UI libraries use `border-box` by default to provide consistent and predictable layouts.
+
+**Summary:**
+
+- `box-sizing: content-box;` calculates width and height based on content only, with padding and border added separately.
+- `box-sizing: border-box;` calculates width and height, including content, padding, and border, ensuring that the element's size remains fixed.
+
+Here's a simple line diagram to illustrate the difference:
+
+```
+   +------------------------------------+
+   |    Width & Height (200px)         |
+   |    +--------------------------+    |
+   |    |      Padding (20px)     |    |
+   |    |    +----------------+    |    |
+   |    |    |    Border (5px)  |    |    content
+   |    |    |                |    |    area
+   |    |    +----------------+    |    |
+   |    |                          |    |
+   |    +--------------------------+    |
+   |                                    |
+   +------------------------------------+
+```
+
+In `content-box` mode, the total width is 200px (content) + 20px (padding) + 10px (border) = 230px.
+In `border-box` mode, the total width is 200px (including padding and border).
