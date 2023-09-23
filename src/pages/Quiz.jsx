@@ -1,189 +1,132 @@
 import { useState } from "react";
 // import Question from "./components/Question";
-// import Result from "./components/Result";
-
-// const quizData = [
-//   {
-//     question:
-//       "What is the holy scripture of Hinduism that contains a conversation between Prince Arjuna and Lord Krishna?",
-//     options: ["Ramayana", "Mahabharata", "Bhagavad Gita", "Rigveda"],
-//     answer: "Bhagavad Gita",
-//   },
-//   {
-//     question:
-//       "Which ancient Indian scripture is known as the oldest layer of Sanskrit literature and consists of hymns to various deities?",
-//     options: ["Ramayana", "Bhagavad Gita", "Upanishads", "Rigveda"],
-//     answer: "Rigveda",
-//   },
-//   {
-//     question:
-//       "What is the primary focus of the Upanishads in Hindu philosophy?",
-//     options: [
-//       "Religious rituals",
-//       "Meditation techniques",
-//       "The pursuit of knowledge",
-//       "Social ethics",
-//     ],
-//     answer: "The pursuit of knowledge",
-//   },
-//   {
-//     question:
-//       "In the Bhagavad Gita, what role does Lord Krishna play in guiding Arjuna?",
-//     options: ["Charioteer", "Warrior", "Healer", "Priest"],
-//     answer: "Charioteer",
-//   },
-//   {
-//     question:
-//       "Which ancient text explains the principles of yoga, meditation, and the path to spiritual enlightenment?",
-//     options: [
-//       "Ramayana",
-//       "Mahabharata",
-//       "Bhagavad Gita",
-//       "Yoga Sutras of Patanjali",
-//     ],
-//     answer: "Yoga Sutras of Patanjali",
-//   },
-//   {
-//     question: "What is the main theme of the Katha Upanishad?",
-//     options: [
-//       "Self-realization",
-//       "Warfare strategy",
-//       "Social justice",
-//       "Agriculture techniques",
-//     ],
-//     answer: "Self-realization",
-//   },
-//   {
-//     question:
-//       "Which Vedantic text discusses the concept of 'Aham Brahmasmi' (I am Brahman) in its teachings?",
-//     options: [
-//       "Taittiriya Upanishad",
-//       "Bhagavad Gita",
-//       "Mundaka Upanishad",
-//       "Isha Upanishad",
-//     ],
-//     answer: "Mundaka Upanishad",
-//   },
-//   {
-//     question:
-//       "In Hinduism, what is the term for the cycle of birth, death, and rebirth based on one's karma?",
-//     options: ["Samsara", "Nirvana", "Dharma", "Moksha"],
-//     answer: "Samsara",
-//   },
-//   {
-//     question:
-//       "Which Indian scripture emphasizes the importance of performing one's duty (dharma) without attachment to the results?",
-//     options: ["Ramayana", "Mahabharata", "Bhagavad Gita", "Rigveda"],
-//     answer: "Bhagavad Gita",
-//   },
-//   {
-//     question:
-//       "Who is considered the author of the ancient Indian text 'Yoga Sutras'?",
-//     options: ["Lord Krishna", "Sage Vyasa", "Sage Patanjali", "Lord Rama"],
-//     answer: "Sage Patanjali",
-//   },
-//   // Add more questions here
-// ];
 
 const quizDataHindi = [
   {
-    question: "भगवद गीता किस युद्ध के दौरान उपदेश दिए गए थे?",
-    options: ["कुरुक्षेत्र", "महाभारत", "रामायण", "पाण्डव"],
-    answer: "कुरुक्षेत्र",
-    explanation:
-      "भगवद गीता कुरुक्षेत्र युद्ध के दौरान भगवान कृष्ण द्वारा अर्जुन को दिए गए उपदेश हैं।",
-  },
-  {
-    question: "भगवद गीता में कितने अध्याय होते हैं?",
-    options: ["18", "10", "24", "30"],
-    answer: "18",
-    explanation:
-      "भगवद गीता में कुल मिलाकर 18 अध्याय होते हैं, जिसमें विभिन्न जीवन मूल्यों और धार्मिक सिद्धांतों का वर्णन है।",
-  },
-  {
-    question: "रामायण के किस काण्ड में लक्ष्मण रेखा का वर्णन है?",
-    options: ["बालकाण्ड", "अरण्यकाण्ड", "सुंदरकाण्ड", "युद्धकाण्ड"],
-    answer: "अरण्यकाण्ड",
-    explanation:
-      "रामायण के अरण्यकाण्ड में लक्ष्मण रेखा का वर्णन है, जिसे लक्ष्मण ने सीता की सुरक्षा के लिए खींचा था।",
-  },
-  {
-    question: "महाभारत के किस पात्र ने भगवद गीता का गीतन किया?",
-    options: ["अर्जुन", "दुर्योधन", "भीम", "कृष्ण"],
-    answer: "कृष्ण",
-    explanation:
-      "भगवान कृष्ण ने महाभारत के कुरुक्षेत्र युद्ध में अर्जुन को भगवद गीता का उपदेश दिया।",
-  },
-  {
-    question: "वेदों में कितने वेद होते हैं?",
-    options: ["2", "4", "6", "8"],
-    answer: "4",
-    explanation:
-      "वेदों में कुल मिलाकर 4 वेद होते हैं - ऋग्वेद, सामवेद, यजुर्वेद, और अथर्ववेद।",
-  },
-  {
-    question: "उपनिषदों की कितनी संख्या है?",
-    options: ["108", "100", "50", "200"],
-    answer: "108",
-    explanation:
-      "उपनिषदों की कुल संख्या 108 है, जो वेदों का अंतिम भाग माने जाते हैं।",
-  },
-  {
-    question: "भगवद गीता में 'कर्मण्येवाधिकारस्ते' का क्या अर्थ है?",
+    id: 1,
+    question: "What is React?",
     options: [
-      "कर्म करो, फल की चिंता मत करो",
-      "सब कुछ भगवान के हाथ में है",
-      "जो होगा अच्छा होगा",
-      "कर्म ही पूजा है",
+      "A JavaScript library for building user interfaces",
+      "A server-side scripting language",
+      "A database management system",
+      "An operating system",
     ],
-    answer: "कर्म करो, फल की चिंता मत करो",
+    answer: "A JavaScript library for building user interfaces",
     explanation:
-      "इसका अर्थ है कि आपका कार्य केवल कर्म करने का है, उसके परिणाम की",
+      "React is a JavaScript library used for building user interfaces in web applications.",
   },
   {
+    id: 2,
     question:
-      "भगवद गीता में भगवान कृष्ण का क्या भूमिका है जिन्होंने अर्जुन के मार्गदर्शन किया?",
-    options: ["रथ सवार", "योद्धा", "चिकित्सक", "पुजारी"],
-    answer: "रथ सवार",
+      "Which hook in React is used for side effects in function components?",
+    options: ["useState", "useEffect", "useContext", "useReducer"],
+    answer: "useEffect",
+    explanation:
+      "The useEffect hook is used for side effects in React function components, such as data fetching and DOM manipulation.",
   },
   {
-    question:
-      "किस प्राचीन ग्रंथ में योग, ध्यान, और आत्मिक उन्नति का मार्ग बताया गया है?",
-    options: ["रामायण", "महाभारत", "भगवद गीता", "पतंजलि के योग सूत्र"],
-    answer: "पतंजलि के योग सूत्र",
-  },
-  {
-    question: "कथा उपनिषद का मुख्य विषय क्या है?",
+    id: 3,
+    question: "What is JSX in React?",
     options: [
-      "आत्म-साक्षात्कार",
-      "युद्ध रणनीति",
-      "सामाजिक न्याय",
-      "कृषि तकनीक",
+      "JavaScript XML",
+      "JavaScript Extension",
+      "JavaScript Syntax",
+      "JavaScript Framework",
     ],
-    answer: "आत्म-साक्षात्कार",
+    answer: "JavaScript XML",
+    explanation:
+      "JSX stands for JavaScript XML and is a syntax extension for JavaScript used in React to describe the structure of user interfaces.",
   },
   {
-    question:
-      "किस वेदांतिक ग्रंथ में 'अहम् ब्रह्मास्मि' (मैं ब्रह्म हूँ) का आदान-प्रदान किया गया है?",
-    options: ["तैत्तिरीय उपनिषद", "भगवद गीता", "मुण्डक उपनिषद", "ईशा उपनिषद"],
-    answer: "मुण्डक उपनिषद",
+    id: 4,
+    question: "What is the purpose of the useState hook in React?",
+    options: [
+      "To fetch data from a server",
+      "To manage component state",
+      "To define custom hooks",
+      "To create context providers",
+    ],
+    answer: "To manage component state",
+    explanation:
+      "The useState hook is used in React to manage component-level state, allowing components to re-render when the state changes.",
   },
   {
-    question:
-      "हिन्दू धर्म में, 'संसार' का क्या मतलब है, जो किसी के कर्म के आधार पर जन्म, मृत्यु, और पुनर्जन्म का चक्र है?",
-    options: ["संसार", "निर्वाण", "धर्म", "मोक्ष"],
-    answer: "संसार",
+    id: 5,
+    question: "What is the virtual DOM in React?",
+    options: [
+      "A virtual reality interface",
+      "An in-memory representation of the actual DOM",
+      "A debugging tool",
+      "A web browser extension",
+    ],
+    answer: "An in-memory representation of the actual DOM",
+    explanation:
+      "The virtual DOM is an in-memory representation of the actual DOM elements in a web page, used for optimizing updates and rendering in React.",
   },
   {
-    question:
-      "कौन-सा भारतीय ग्रंथ मानव अधिकारों के साथ अपने कर्तव्य (धर्म) का पालन करने के महत्व को बताता है?",
-    options: ["रामायण", "महाभारत", "भगवद गीता", "रिगवेद"],
-    answer: "भगवद गीता",
+    id: 6,
+    question: "What is the purpose of React Router?",
+    options: [
+      "To style React components",
+      "To manage application state",
+      "To handle client-side routing",
+      "To interact with a database",
+    ],
+    answer: "To handle client-side routing",
+    explanation:
+      "React Router is a library used in React applications to handle client-side routing and navigation.",
   },
   {
-    question: "प्राचीन भारतीय ग्रंथ 'योग सूत्र' के लेखक कौन माने जाते हैं?",
-    options: ["भगवान कृष्ण", "महर्षि व्यास", "महर्षि पतंजलि", "भगवान राम"],
-    answer: "महर्षि पतंजलि",
+    id: 7,
+    question: "What is the significance of Redux in React applications?",
+    options: [
+      "To manage component styling",
+      "To handle asynchronous operations",
+      "To manage global state",
+      "To generate documentation",
+    ],
+    answer: "To manage global state",
+    explanation:
+      "Redux is a state management library used in React applications to manage global state and make it accessible to all components.",
+  },
+  {
+    id: 8,
+    question: "What is the purpose of the useMemo hook in React?",
+    options: [
+      "To perform memoization of expensive calculations",
+      "To handle component lifecycle events",
+      "To fetch data from an API",
+      "To create reusable components",
+    ],
+    answer: "To perform memoization of expensive calculations",
+    explanation:
+      "The useMemo hook is used to memoize expensive calculations in React to optimize performance by avoiding unnecessary re-computation.",
+  },
+  {
+    id: 9,
+    question: "What is the role of props in React?",
+    options: [
+      "To manage component state",
+      "To define custom hooks",
+      "To pass data from parent to child components",
+      "To style components",
+    ],
+    answer: "To pass data from parent to child components",
+    explanation:
+      "Props in React are used to pass data from parent to child components, enabling the transfer of information between components.",
+  },
+  {
+    id: 10,
+    question: "What is the purpose of the useContext hook in React?",
+    options: [
+      "To create custom hooks",
+      "To handle component styling",
+      "To manage context data in functional components",
+      "To fetch data from an API",
+    ],
+    answer: "To manage context data in functional components",
+    explanation:
+      "The useContext hook in React is used to manage and access context data in functional components, making it available without prop drilling.",
   },
 ];
 
@@ -193,13 +136,14 @@ function Quiz() {
   const [userAnswer, setUserAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState(false);
+  const [name, setName] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
   // Function to handle when the user submits an answer
   const handleAnswerSubmit = () => {
     // Check if the user's answer matches the correct answer for the current question
     if (userAnswer === quizDataHindi[currentQuestion].answer) {
       // If the answer is correct, increment the score
-      setScore(score + 1);
+      setScore((score) => score + 1);
     }
     setAnswer(true);
 
@@ -213,7 +157,7 @@ function Quiz() {
       } else {
         setCurrentQuestion(quizDataHindi.length); // handling the condition for the last question
       }
-    }, 4000);
+    }, 1000);
   };
 
   return (
@@ -222,6 +166,19 @@ function Quiz() {
         {currentQuestion < quizDataHindi.length ? (
           // Display the current question if there are more quizDataHindi to show
           <div>
+            <label
+              htmlFor="
+        "
+              className=" flex   "
+            >
+              <input
+                className="w-full mb-4 py-2 px-4 border rounded focus:outline-none focus:border-blue-500 placeholder-gray-400 text-base text-gray-700 bg-gray-100 hover:bg-gray-200"
+                type="text"
+                value={name}
+                placeholder="Enter your name here"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
             <h1 className="text-xl font-semibold mb-4">
               Question {currentQuestion + 1} of {quizDataHindi.length}
             </h1>
@@ -277,7 +234,7 @@ function Quiz() {
             </h1>
             <p className="text-lg">
               {score >= quizDataHindi.length / 2
-                ? "Congratulations! You passed the Quiz."
+                ? `Congratulations ${name}! You passed the Quiz.`
                 : "Keep practicing! You can do better."}
             </p>
           </div>

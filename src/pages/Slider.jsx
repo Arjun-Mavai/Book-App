@@ -37,8 +37,8 @@ const ImageCar = () => {
             onMouseEnter={() => setHover(index)}
             // Reset hover state on mouse leave
             onMouseLeave={() => setHover(null)}
-            onTouchStart={() => setHover(null)}
-            onTouchEnd={() => setHover(index)}
+            onTouchStart={() => setHover(index)}
+            onTouchEnd={() => setHover(null)}
             key={index}
             className="names  m-4 gap-2 w-32 md:w-48 lg:w-64 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
           >
@@ -49,7 +49,7 @@ const ImageCar = () => {
       </div>
       {/* Display area section */}
       <div className="displayArea w-3/4">
-        {/* Conditionally render image if hover is not null */}
+        {/* Conditionally render image if hover is not null or other than null means it got some index to display  */}
         {hover !== null && (
           <img
             className="w-full h-auto top-[200px] sm: md:top-0 absolute bottom-[250px] right-1 rounded-lg max-w-[320px] lg:max-w-[420] overflow-hidden mt-4 flex items-center justify-center"

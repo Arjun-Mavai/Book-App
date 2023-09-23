@@ -63,6 +63,7 @@ const Sidebar = () => {
             ["About Project", "/projects"],
             ["Carousel", "/slide"],
             ["Quiz", "/quiz"],
+            ["Reminder", "/remind"],
           ].map(([title, url], id) => (
             // earlier i was using id in ([title ,url, id,])
             <div
@@ -94,6 +95,7 @@ const Sidebar = () => {
                 ["About Project", "/projects"],
                 ["Carousel", "/slide"],
                 ["Quiz", "/quiz"],
+                ["Reminder", "/remind"],
               ].map(([title, url], id) => (
                 // earlier i was using id in ([title ,url, id,])
                 <div className="link leading-10  " key={id}>

@@ -17,6 +17,7 @@ import Author from "./components/Author";
 // import { Slider } from "antd"; // i actually used it as my component name this one got rendered here from antd
 import ImageCar from "./pages/Slider";
 import Quiz from "./pages/Quiz";
+import Reminder from "./pages/Reminders";
 // import "./styles/main.css";
 
 const About = lazy(() => import("./pages/About"));
@@ -63,7 +64,8 @@ function App() {
         { path: "*", element: <NotFound /> },
         { path: "/projects", element: <Projects /> },
         { path: "/slide", element: <ImageCar /> },
-        { path: "/quiz", element: <Quiz /> }, // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
+        { path: "/quiz", element: <Quiz /> },
+        { path: "/remind", element: <Reminder /> }, // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
       ],
     },
     {

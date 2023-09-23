@@ -1,10 +1,16 @@
 import "../styles/main.css";
 // "./styles/main.css"; this was not working i used ../ it worked
-
 const Projects = () => {
   return (
     <div className="project flex gap-4 flex-col bg-slate-950 h-screen p-4 rounded-lg ">
-      <h1 className="tracking-wider leading-6  font-bold text-2xl">
+      <h1
+        className="tracking-wider leading-6  font-bold text-2xl"
+
+        // style={{
+        //   backgroundImage:
+        //     "linear-gradient(79deg, #2b0aff 0%, #ff5b8a 49%, #ff5b8a 55%, #fba64b 77%, #f99b52 100%) ; ",
+        // }}
+      >
         Use of TechStack in this WebApp
       </h1>
       <ul className=" rounded-lg">
