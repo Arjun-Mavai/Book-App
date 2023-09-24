@@ -22,6 +22,17 @@ export default function Reminder() {
     }
   }, [reminders]);
 
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem("reminders")) || [];
+    console.log(savedData);
+    setReminders(savedData);
+  }, []);
+
+  useEffect(
+    () => localStorage.setItem("reminders", JSON.stringify(reminders)),
+    [reminders]
+  );
+
   const handleAdd = () => {
     if (reminder && time) {
       setReminders([...reminders, { text: reminder, time }]);

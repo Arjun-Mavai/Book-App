@@ -30,7 +30,7 @@ function DisplayPhotos() {
             Click for Photos
           </button>
         )}
-        {photos.map((photo) => (
+        {photos?.map((photo) => (
           <div className="container     " key={photo.id}>
             {btn && (
               <img

@@ -19,6 +19,7 @@ import ImageCar from "./pages/Slider";
 import Quiz from "./pages/Quiz";
 import Reminder from "./pages/Reminders";
 import DisplayPhotos from "./pages/DisplayPhotos";
+import MediaPosts from "./pages/MediaPosts";
 // import "./styles/main.css";
 
 const About = lazy(() => import("./pages/About"));
@@ -68,7 +69,9 @@ function App() {
         { path: "/slide", element: <ImageCar /> },
         { path: "/quiz", element: <Quiz /> },
         { path: "/remind", element: <Reminder /> },
-        { path: "/photo", element: <DisplayPhotos /> }, // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
+        { path: "/photo", element: <DisplayPhotos /> },
+        { path: "/media", element: <MediaPosts /> },
+        // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
       ],
     },
     {
