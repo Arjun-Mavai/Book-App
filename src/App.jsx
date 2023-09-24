@@ -18,6 +18,7 @@ import Author from "./components/Author";
 import ImageCar from "./pages/Slider";
 import Quiz from "./pages/Quiz";
 import Reminder from "./pages/Reminders";
+import DisplayPhotos from "./pages/DisplayPhotos";
 // import "./styles/main.css";
 
 const About = lazy(() => import("./pages/About"));
@@ -29,13 +30,14 @@ const queryClient = new QueryClient();
 
 const Layout = () => {
   return (
-    <div className="main h-screen grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-950 text-white h-full">
+    <div className="main h-screen overflow-x-hidden md:max-w-full  grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-950 text-white h-full">
       <div className="header  p-4 col-span-3">
         <Sidebar />
       </div>
       {/* <div className="menuContainer flex h-full  "></div>  earlier it is for sidebar above one for header*/}
       <div className="container bg-slate-600 p-4 col-span-3 row-span-2 rounded-md">
-        <div className="contentContainer  col-span-[1/3]">
+        <div className="contentContainer max-w-full col-span-[1/3]">
+          {/* maxwfull above solve the problem of horizontal moving of the entire app */}
           <ErrorBoundary>
             <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
@@ -65,7 +67,8 @@ function App() {
         { path: "/projects", element: <Projects /> },
         { path: "/slide", element: <ImageCar /> },
         { path: "/quiz", element: <Quiz /> },
-        { path: "/remind", element: <Reminder /> }, // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
+        { path: "/remind", element: <Reminder /> },
+        { path: "/photo", element: <DisplayPhotos /> }, // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
       ],
     },
     {
