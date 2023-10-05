@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useState } from "react";
 // import Question from "./components/Question";
-
+const intiatStartTime = Date.now();
 const quizDataHindi = [
   {
     id: 1,
@@ -133,52 +134,76 @@ const quizDataHindi = [
 function Quiz() {
   // State variables to keep track of the current question, user's answer, and score
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [userAnswer, setUserAnswer] = useState("");
+  const [userAnswer, setUserAnswer] = useState([]);
   const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState(false);
   const [name, setName] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [hasEnteredName, setHasEnteredName] = useState(false);
+  const [timesTaken, setTimesTaken] = useState([]);
+  const [startTime, setStartTime] = useState(intiatStartTime);
+
+  const formatTime = (ms) => {
+    const seconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}m ${remainingSeconds}s`;
+  };
+  //  12000 ms === 2 min 60s 1000 ms
   // Function to handle when the user submits an answer
+  useEffect(() => {
+    const savedTimes = JSON.parse(localStorage.getItem("timesTaken"));
+    if (savedTimes) {
+      setTimesTaken(savedTimes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("timesTaken", JSON.stringify(timesTaken));
+  }, [timesTaken]);
+
   const handleAnswerSubmit = () => {
-    // Check if the user's answer matches the correct answer for the current question
     if (userAnswer === quizDataHindi[currentQuestion].answer) {
-      // If the answer is correct, increment the score
       setScore((score) => score + 1);
     }
     setAnswer(true);
 
-    // Check if there are more quizDataHindi to display
+    setUserAnswer(userAnswer); // Updated directly
+    setTimesTaken([...timesTaken, Date.now() - startTime]);
+
     setTimeout(() => {
       if (currentQuestion < quizDataHindi.length - 1) {
-        // If there are more quizDataHindi, move to the next question and reset the user's answer
         setCurrentQuestion(currentQuestion + 1);
-        setUserAnswer("");
+        setUserAnswer(""); // Reset to an empty string
+        setSelectedIndex(null); // Reset selected index
         setAnswer(false);
       } else {
-        setCurrentQuestion(quizDataHindi.length); // handling the condition for the last question
+        setCurrentQuestion(quizDataHindi.length);
       }
     }, 1000);
   };
 
   return (
-    <div className="bg-slate-950 text-white 200 min-h-screen flex items-center justify-center">
-      <div className=" p-8 rounded-lg shadow-md">
-        {currentQuestion < quizDataHindi.length ? (
-          // Display the current question if there are more quizDataHindi to show
+    <div className=" grainy bg-rad text-black font-bold  200 min-h-screen flex items-center justify-center">
+      {!hasEnteredName ? (
+        <label htmlFor="">
+          <input
+            className="w-full border-t-teal-500 border-b-rose-500 border-l-green-500 mb-4 py-2 px-4 border rounded focus:outline-none focus:border-blue-500 placeholder-gray-400 text-base text-gray-700 bg-gray-100 hover:bg-gray-200"
+            type="text"
+            value={name}
+            placeholder="Enter your name here"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button
+            className="border py-2 px-4 rounded-lg shadow-lg shadow-green-600 text-gray-100 bg-gradient-to-r from-lime-500 via-rose-400 to-amber-600"
+            onClick={() => setHasEnteredName(true)}
+          >
+            Add Name
+          </button>
+        </label>
+      ) : currentQuestion < quizDataHindi.length ? (
+        <div className="p-8 rounded-lg shadow-md">
           <div>
-            <label
-              htmlFor="
-        "
-              className=" flex   "
-            >
-              <input
-                className="w-full mb-4 py-2 px-4 border rounded focus:outline-none focus:border-blue-500 placeholder-gray-400 text-base text-gray-700 bg-gray-100 hover:bg-gray-200"
-                type="text"
-                value={name}
-                placeholder="Enter your name here"
-                onChange={(e) => setName(e.target.value)}
-              />
-            </label>
             <h1 className="text-xl font-semibold mb-4">
               Question {currentQuestion + 1} of {quizDataHindi.length}
             </h1>
@@ -186,12 +211,10 @@ function Quiz() {
               {quizDataHindi[currentQuestion].question}
             </h2>
             <ul className="space-y-2">
-              {/* Map over the answer options for the current question */}
               {quizDataHindi[currentQuestion].options.map((option, index) => (
                 <li
                   key={index}
-                  // Apply CSS classes conditionally based on user's answer
-                  className={`p-2 cursor-pointer rounded-lg hover:bg-slate-800 ${
+                  className={`p-2 cursor-pointer rounded-lg hover:bg-blue-400 ${
                     answer
                       ? index === selectedIndex &&
                         userAnswer !== quizDataHindi[currentQuestion].answer
@@ -203,14 +226,20 @@ function Quiz() {
                         ? "bg-green-400"
                         : ""
                       : ""
-                  }  `}
-                  onClick={() => {
-                    if (!answer) {
-                      setUserAnswer(option);
-                      setSelectedIndex(index);
-                    }
-                  }}
+                  }`}
                 >
+                  <input
+                    type="radio"
+                    checked={userAnswer === option}
+                    name="radio"
+                    value={option}
+                    onChange={() => {
+                      if (!answer) {
+                        setUserAnswer(option);
+                        setSelectedIndex(index);
+                      }
+                    }}
+                  />
                   {option}
                 </li>
               ))}
@@ -222,24 +251,36 @@ function Quiz() {
               Submit Answer
             </button>
             &nbsp;&nbsp; <br /> <br />
-            {userAnswer && quizDataHindi[currentQuestion].explanation}
+            {/* {userAnswer && quizDataHindi[currentQuestion].explanation} */}
             <br />
-            {userAnswer && quizDataHindi[currentQuestion].answer}
+            {/* {userAnswer && quizDataHindi[currentQuestion].answer} */}
           </div>
-        ) : (
-          // Display the result if there are no more quizDataHindi
-          <div>
-            <h1 className="text-2xl font-semibold mb-4">
-              Your Score: {score}/{quizDataHindi.length}
-            </h1>
-            <p className="text-lg">
-              {score >= quizDataHindi.length / 2
-                ? `Congratulations ${name}! You passed the Quiz.`
-                : "Keep practicing! You can do better."}
-            </p>
-          </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div>
+          <h1 className="text-2xl font-semibold mb-4">
+            <h1>Result</h1>
+            {name} : Your Score: {score}/{quizDataHindi.length}
+          </h1>
+          <p className="text-lg">
+            {score >= quizDataHindi.length / 2
+              ? `Congratulations ${name}! You passed the Quiz.`
+              : "Keep practicing! You can do better."}
+          </p>
+          {quizDataHindi.map((question, index) => (
+            <div className="display" key={index}>
+              <h1>Explanations</h1>
+              <h2>{question.question}</h2>
+              <p>Selected Answer : {userAnswer[index]}</p>
+              <p>Correct Answer : {question.answer}</p>
+              <p>
+                Time taken : {formatTime(timesTaken[index])}
+                ms
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

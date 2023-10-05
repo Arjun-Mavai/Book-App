@@ -204,6 +204,9 @@ Understanding each command helps you to build your React Book App efficiently an
 - **pnpm install antd --save**: Adds Ant Design for UI components.
 - **pnpm install dotenv --save-dev**: Manages environment variables.
 - **pnpm add -g pnpm**: Updates pnpm to the latest version.
+- pnpm add @clerk/clerk-react : for authentication from clerk
+- npm install react-paginate
+
 
 ## 🎉 Happy Coding! 🎉
 

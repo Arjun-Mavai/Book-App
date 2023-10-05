@@ -9,6 +9,7 @@ const data = [
   ["Reminder", "/remind"],
   ["Gallery", "/photo"],
   ["MediaPosts", "/media"],
+  ["MatchGame", "/match"],
 ];
 
 export default data;

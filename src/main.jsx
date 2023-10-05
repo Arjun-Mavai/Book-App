@@ -25,7 +25,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }}
       publishableKey={clerkPubKey}
     >
-      <div>Hello from clerk</div>
       <App />
     </ClerkProvider>
   </React.StrictMode>

@@ -7,7 +7,11 @@ export default {
     './src/**/*.{ts,tsx,jsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans'],
+      },
+    },
   },
   plugins: [],
 }

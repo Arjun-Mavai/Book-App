@@ -6,20 +6,38 @@ import { TypeAnimation } from "react-type-animation";
 import "../styles/main.css";
 import { UserButton } from "@clerk/clerk-react";
 import data from "../data/data";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const Sidebar = () => {
   const [menu, setMenu] = useState(false);
+  // const menuRef = useRef(null);
+
+  // useEffect(() => {
+  //   const closeMenuOnOutsideClick = (e) => {
+  //     if (menu && menuRef.current && !menuRef.current.contains(e.target)) {
+  //       setMenu(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("click", closeMenuOnOutsideClick);
+
+  //   return () => {
+  //     document.removeEventListener("click", closeMenuOnOutsideClick);
+  //   };
+  // }, [menu]);
 
   const handleChange = () => {
+    console.log("menu clicked");
     setMenu(!menu);
   };
 
   return (
-    <div className=" bg-slate-950 max-h-full">
+    <div className=" text-black  max-h-full border-t-teal-400">
       <div className="signout flex flex-row-reverse p-6">
         <UserButton afterSignOutUrl="/" />
       </div>
-      <div className=" mb-4 container flex flex-row justify-between p-5 md:px-32  shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+      <div className=" mb-4 radil rounded-lg text-gray-900 container flex flex-row justify-between p-5 md:px-32  shadow-[0_31px_19px_rgb(80,67,250,0.2)]">
         {/* <ul>
           <li className="flex flex-col gap-5 h-screen sm:flex-col md:flex-col">
             <Link
@@ -73,20 +91,24 @@ const Sidebar = () => {
           ))}
         </nav>
         <div className="flex md:hidden    " onClick={handleChange}>
-          <div className="p-2  ">
+          <div className="z-10">
             {!menu ? (
               <AiOutlineMenu size={32} />
             ) : (
-              <AiOutlineClose className="menu-close" size={32} />
+              <AiOutlineClose
+                className="menu-close text-red-700 z-500"
+                size={32}
+              />
             )}
             {/* intially menu false so showing close icon so i did !menu toggled it */}
           </div>
           <div
             className={`mobileMenu ${
               menu ? "translate-x-0" : " -translate-x-full"
-            }  md:hidden rounded-lg  flex flex-col    bg-gradient-to-r from-[#ff7170] to-[#ffe57f]  text-black font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+            }  md:hidden rounded-lg text-white flex flex-col  bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+            // ref={menuRef}
           >
-            <nav className="  md:flex gap-5 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
+            <nav className=" border-dashed  md:flex gap-5 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
               {data.map(([title, url], id) => (
                 // earlier i was using id in ([title ,url, id,])
                 <div className="link leading-10  " key={id}>
@@ -115,7 +137,7 @@ const Sidebar = () => {
         ]}
         wrapper="span"
         speed={50}
-        className=" text-3xl font-semibold bg-gradient-to-r inline-block from-[#ff7170] to-[#ffe57f] bg-clip-text text-transparent "
+        className=" text-4xl font-extrabold bg-gradient-to-r inline-block from-rose-400 to-teal-500 bg-clip-text text-transparent "
         // style={{ fontSize: "2em", display: "inline-block" }}
         repeat={Infinity}
       />

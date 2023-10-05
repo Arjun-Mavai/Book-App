@@ -20,10 +20,11 @@ import Quiz from "./pages/Quiz";
 import Reminder from "./pages/Reminders";
 import DisplayPhotos from "./pages/DisplayPhotos";
 import MediaPosts from "./pages/MediaPosts";
-import { Slider } from "antd";
+// import { Slider } from "antd";
 // import "./styles/main.css";
 import { useUser, RedirectToSignIn } from "@clerk/clerk-react";
 import Starter from "./components/Starter";
+import MatchGame from "./pages/MatchGame";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -42,7 +43,7 @@ const Layout = () => {
     <>
       {/* {user && <Welcome />} */}
 
-      <div className="main h-screen overflow-x-hidden md:max-w-full  grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-950 text-white h-full">
+      <div className="main h-screen overflow-x-hidden md:max-w-full  grid grid-cols-3 grid-rows-[auto , 1fr , auto] grainy text-white h-full">
         <Starter />
 
         <div className="header  p-4 col-span-3">
@@ -59,7 +60,7 @@ const Layout = () => {
             </ErrorBoundary>
           </div>
         </div>
-        <div className="footer bg-slate-950 col-span-3 bottom-0 flex  flex-col-reverse p-2 ">
+        <div className="footer  col-span-3 bottom-0 flex  flex-col-reverse p-2 ">
           <Footer className="" />
         </div>
       </div>
@@ -84,7 +85,8 @@ function App() {
         { path: "/quiz", element: <Quiz /> },
         { path: "/remind", element: <Reminder /> },
         { path: "/photo", element: <DisplayPhotos /> },
-        { path: "/media", element: <Slider /> },
+        { path: "/media", element: <MediaPosts /> },
+        { path: "/match", element: <MatchGame /> },
 
         // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
       ],
