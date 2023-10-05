@@ -9,6 +9,7 @@ function DisplayPhotos() {
   const apiKey = "7wcDtzy5b3rioIKxdmdnOvorYqNRejiaEzLDAqNJA2E";
 
   useEffect(() => {
+    // testing stash
     axios
       .get(
         `https://api.unsplash.com/photos/random/?count=10&query=nature&client_id=${apiKey}`

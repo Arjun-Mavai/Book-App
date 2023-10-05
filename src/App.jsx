@@ -20,7 +20,10 @@ import Quiz from "./pages/Quiz";
 import Reminder from "./pages/Reminders";
 import DisplayPhotos from "./pages/DisplayPhotos";
 import MediaPosts from "./pages/MediaPosts";
+import { Slider } from "antd";
 // import "./styles/main.css";
+import { useUser, RedirectToSignIn } from "@clerk/clerk-react";
+import Starter from "./components/Starter";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -30,26 +33,37 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 
 const Layout = () => {
+  const { user } = useUser();
+
+  if (!user) {
+    return <RedirectToSignIn />;
+  }
   return (
-    <div className="main h-screen overflow-x-hidden md:max-w-full  grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-950 text-white h-full">
-      <div className="header  p-4 col-span-3">
-        <Sidebar />
-      </div>
-      {/* <div className="menuContainer flex h-full  "></div>  earlier it is for sidebar above one for header*/}
-      <div className="container bg-slate-600 p-4 col-span-3 row-span-2 rounded-md">
-        <div className="contentContainer max-w-full col-span-[1/3]">
-          {/* maxwfull above solve the problem of horizontal moving of the entire app */}
-          <ErrorBoundary>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Outlet />
-            </Suspense>
-          </ErrorBoundary>
+    <>
+      {/* {user && <Welcome />} */}
+
+      <div className="main h-screen overflow-x-hidden md:max-w-full  grid grid-cols-3 grid-rows-[auto , 1fr , auto] bg-slate-950 text-white h-full">
+        <Starter />
+
+        <div className="header  p-4 col-span-3">
+          <Sidebar />
+        </div>
+        {/* <div className="menuContainer flex h-full  "></div>  earlier it is for sidebar above one for header*/}
+        <div className="container  p-4 col-span-3 row-span-2 rounded-md">
+          <div className="contentContainer max-w-full col-span-[1/3]">
+            {/* maxwfull above solve the problem of horizontal moving of the entire app */}
+            <ErrorBoundary>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+              </Suspense>
+            </ErrorBoundary>
+          </div>
+        </div>
+        <div className="footer bg-slate-950 col-span-3 bottom-0 flex  flex-col-reverse p-2 ">
+          <Footer className="" />
         </div>
       </div>
-      <div className="footer bg-slate-950 col-span-3 bottom-0 flex  flex-col-reverse p-2 ">
-        <Footer className="" />
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -70,7 +84,8 @@ function App() {
         { path: "/quiz", element: <Quiz /> },
         { path: "/remind", element: <Reminder /> },
         { path: "/photo", element: <DisplayPhotos /> },
-        { path: "/media", element: <MediaPosts /> },
+        { path: "/media", element: <Slider /> },
+
         // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
       ],
     },

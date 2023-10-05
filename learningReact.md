@@ -1,5 +1,12 @@
 🌟 Summary
 
+authentication using clerk
+https://clerk.com/blog/setting-and-using-cookies-in-react?utm_source=www.google.com&utm_medium=referral&utm_campaign=none
+
+signout 
+https://clerk.com/docs/custom-flows/sign-out?utm_source=www.google.com&utm_medium=referral&utm_campaign=none
+
+
 Certainly! Here are 20 important topics to prepare for a React interview:
 
 1. **React Components**: Understand the concept of components, their types (class vs. functional), and when to use each.

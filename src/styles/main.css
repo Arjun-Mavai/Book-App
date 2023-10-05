@@ -18,12 +18,17 @@
   @apply font-sans leading-10 md:leading-6 tracking-tight   bg-gradient-to-r  from-blue-400 to-amber-500 bg-clip-text text-transparent  text-lg shadow-lg text font-bold
 }
 
+/* .menu-close{
+  z-index: 200;
+} */
+
 @layer components {
     .text {
       /* your custom styles here */
       color: red;
       font-size: 16px;
     }
+    
   }
   
   Link{

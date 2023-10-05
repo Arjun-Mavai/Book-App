@@ -4,6 +4,8 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { TypeAnimation } from "react-type-animation";
 
 import "../styles/main.css";
+import { UserButton } from "@clerk/clerk-react";
+import data from "../data/data";
 
 const Sidebar = () => {
   const [menu, setMenu] = useState(false);
@@ -14,6 +16,9 @@ const Sidebar = () => {
 
   return (
     <div className=" bg-slate-950 max-h-full">
+      <div className="signout flex flex-row-reverse p-6">
+        <UserButton afterSignOutUrl="/" />
+      </div>
       <div className=" mb-4 container flex flex-row justify-between p-5 md:px-32  shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         {/* <ul>
           <li className="flex flex-col gap-5 h-screen sm:flex-col md:flex-col">
@@ -55,18 +60,7 @@ const Sidebar = () => {
         </div>
 
         <nav className="hidden border border-transparent  md:flex gap-5 font-medium p-1 cursor-pointer ">
-          {[
-            ["Home", "/"],
-            ["Books", "/books"],
-            ["Authors", "/authors"],
-            ["Not Found", "*"], // updated from reports to "*" to take all paths
-            ["About Project", "/projects"],
-            ["Carousel", "/slide"],
-            ["Quiz", "/quiz"],
-            ["Reminder", "/remind"],
-            ["Gallery", "/photo"],
-            ["MediaPosts", "/media"],
-          ].map(([title, url], id) => (
+          {data.map(([title, url], id) => (
             // earlier i was using id in ([title ,url, id,])
             <div
               className="text-gradient uppercase    link leading-10 tracking-wide   rounded-lg "
@@ -78,29 +72,22 @@ const Sidebar = () => {
             </div>
           ))}
         </nav>
-        <div className="flex md:hidden z-50 " onClick={handleChange}>
-          <div className="p-2">
-            {!menu ? <AiOutlineMenu size={32} /> : <AiOutlineClose size={32} />}
+        <div className="flex md:hidden    " onClick={handleChange}>
+          <div className="p-2  ">
+            {!menu ? (
+              <AiOutlineMenu size={32} />
+            ) : (
+              <AiOutlineClose className="menu-close" size={32} />
+            )}
             {/* intially menu false so showing close icon so i did !menu toggled it */}
           </div>
           <div
             className={`mobileMenu ${
               menu ? "translate-x-0" : " -translate-x-full"
-            } md:hidden flex flex-col absolute bg-slate-900 left-0 top-20 font-medium text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+            }  md:hidden rounded-lg  flex flex-col    bg-gradient-to-r from-[#ff7170] to-[#ffe57f]  text-black font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
           >
             <nav className="  md:flex gap-5 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
-              {[
-                ["Home", "/"],
-                ["Books", "/books"],
-                ["Authors", "/authors"],
-                ["Not Found", "*"], // updated from reports to "*" to take all paths
-                ["About Project", "/projects"],
-                ["Carousel", "/slide"],
-                ["Quiz", "/quiz"],
-                ["Reminder", "/remind"],
-                ["Gallery", "/photo"],
-                ["MediaPosts", "/media"],
-              ].map(([title, url], id) => (
+              {data.map(([title, url], id) => (
                 // earlier i was using id in ([title ,url, id,])
                 <div className="link leading-10  " key={id}>
                   <Link key={id} to={url} className="   ">
