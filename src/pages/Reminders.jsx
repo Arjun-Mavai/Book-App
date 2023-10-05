@@ -44,12 +44,12 @@ export default function Reminder() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12 ">
-      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="relative px-4 py-10 text-black mx-8 md:mx-0 shadow-lg rounded-2xl overflow-hidden bg-[#010026]">
+    <div className="min-h-screen bg-gray-100 grainy py-6 flex flex-col justify-center sm:py-12 ">
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto ">
+        <div className="relative px-4 py-10   border-r-teal-400 text-black mx-8 md:mx-0 shadow-lg rounded-2xl overflow-hidden grainy">
           <div className="max-w-md mx-auto ">
             <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-white">
+              <h2 className="text-3xl  font-extrabold text-black">
                 Reminder Application By Arjun
               </h2>
               <p className="mt-2 text-sm text-white">
@@ -58,7 +58,7 @@ export default function Reminder() {
             </div>
             <div className="mt-6">
               <textarea
-                className="w-full px-5 py-3 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                className=" w-full px-5 py-3 border border-t-teal-500 border-gray-400 focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
                 type="text"
                 name="name"
                 onChange={(e) => setReminder(e.target.value)}
@@ -66,7 +66,7 @@ export default function Reminder() {
                 placeholder="Enter your reminder"
               />
               <input
-                className="mt-3 w-full px-5 py-3 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
+                className="border-t-rose-500 mt-3 w-full px-5 py-3 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
                 type="time"
                 onChange={(e) => setTime(e.target.value)}
                 value={time}

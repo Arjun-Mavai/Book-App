@@ -77,7 +77,7 @@ const Sidebar = () => {
           Arjun.
         </div>
 
-        <nav className="hidden border border-transparent  md:flex gap-5 font-medium p-1 cursor-pointer ">
+        <nav className="hidden border border-transparent md:flex-wrap   md:flex gap-5 font-medium p-1 cursor-pointer ">
           {data.map(([title, url], id) => (
             // earlier i was using id in ([title ,url, id,])
             <div
@@ -91,7 +91,7 @@ const Sidebar = () => {
           ))}
         </nav>
         <div className="flex md:hidden    " onClick={handleChange}>
-          <div className="z-10">
+          <div className="z-30">
             {!menu ? (
               <AiOutlineMenu size={32} />
             ) : (
@@ -105,7 +105,7 @@ const Sidebar = () => {
           <div
             className={`mobileMenu ${
               menu ? "translate-x-0" : " -translate-x-full"
-            }  md:hidden rounded-lg text-white flex flex-col  bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+            }  md:hidden z-20 rounded-lg text-white flex flex-col  bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
             // ref={menuRef}
           >
             <nav className=" border-dashed  md:flex gap-5 font-medium p-1 cursor-pointer leading-6 tracking-widest ">

@@ -184,18 +184,18 @@ function Quiz() {
   };
 
   return (
-    <div className=" grainy bg-rad text-black font-bold  200 min-h-screen flex items-center justify-center">
+    <div className=" relative grainy bg-rad text-black font-bold  200 min-h-screen flex items-center justify-center">
       {!hasEnteredName ? (
-        <label htmlFor="">
+        <label htmlFor="" className="absolute top-5 left-5">
           <input
-            className="w-full border-t-teal-500 border-b-rose-500 border-l-green-500 mb-4 py-2 px-4 border rounded focus:outline-none focus:border-blue-500 placeholder-gray-400 text-base text-gray-700 bg-gray-100 hover:bg-gray-200"
+            className="w-full border-t-teal-500  border-l-green-500 mb-4 py-2 px-4 border-b-red-500 border shadow-lg shadow-green-500 rounded focus:outline-none focus:border-blue-500 placeholder-gray-400 text-base text-gray-700 bg-gray-100 hover:bg-gray-200"
             type="text"
             value={name}
             placeholder="Enter your name here"
             onChange={(e) => setName(e.target.value)}
           />
           <button
-            className="border py-2 px-4 rounded-lg shadow-lg shadow-green-600 text-gray-100 bg-gradient-to-r from-lime-500 via-rose-400 to-amber-600"
+            className="border py-2 px-4 rounded-lg shadow-lg shadow-green-600 text-gray-100 bg-gradient-to-r from-red-400   to-amber-600"
             onClick={() => setHasEnteredName(true)}
           >
             Add Name

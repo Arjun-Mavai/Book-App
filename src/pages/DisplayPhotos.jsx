@@ -23,7 +23,7 @@ function DisplayPhotos() {
   return (
     <div className="main relative  w-full  ">
       <div className="container    text-6xl ">
-        {!btn && (
+        {btn && (
           <button
             className="bg-blue-400 hover:bg-blue-600 mt-10 absolute top-1/2 left-1/2  transform -translate-x-1/2 -translate-y-1/2    py-4 px-6 text-2xl rounded-lg shadow-lg    "
             onClick={() => setBtn(!btn)}
@@ -33,16 +33,14 @@ function DisplayPhotos() {
         )}
         {photos?.map((photo) => (
           <div className="container     " key={photo.id}>
-            {btn && (
-              <img
-                style={{
-                  filter: "url('#squiggly-4')",
-                }}
-                src={photo.urls.regular}
-                alt="not found"
-                className=" w-full rounded-lg drop-shadow-lg   transition-all duration-300 filter shadow-2xl  object-cover"
-              />
-            )}
+            <img
+              style={{
+                filter: "url('#squiggly-4')",
+              }}
+              src={photo.urls.regular}
+              alt="not found"
+              className=" w-full rounded-lg drop-shadow-lg   transition-all duration-300 filter shadow-2xl  object-cover"
+            />
           </div>
         ))}
       </div>
