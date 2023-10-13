@@ -6,11 +6,25 @@ import { TypeAnimation } from "react-type-animation";
 import "../styles/main.css";
 import { UserButton } from "@clerk/clerk-react";
 import data from "../data/data";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { useEffect } from "react";
 
 const Sidebar = () => {
   const [menu, setMenu] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  useEffect(() => {
+    const updateOnlineStatus = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
+
+    return () => {
+      window.removeEventListener("online", updateOnlineStatus);
+      window.removeEventListener("offline", updateOnlineStatus);
+    };
+  }, []);
   // const menuRef = useRef(null);
 
   // useEffect(() => {
@@ -34,6 +48,16 @@ const Sidebar = () => {
 
   return (
     <div className=" text-black  max-h-full border-t-teal-400">
+      {isOnline ? (
+        <div className="text-green-700 font-extrabold">
+          <div className="h-6 w-16 leading-6 tracking-wide uppercase text-white text-[12px] text-center items-center justify-center flex p-2 bg-red-700 rounded-sm ">
+            live
+            <div className="h-4 w-4 bg-white   rounded-[100%] ml-2 animate-pulse "></div>
+          </div>
+        </div>
+      ) : (
+        <p className="text-red-700 font-extrabold">offline</p>
+      )}
       <div className="signout flex flex-row-reverse p-6">
         <UserButton afterSignOutUrl="/" />
       </div>
@@ -105,10 +129,10 @@ const Sidebar = () => {
           <div
             className={`mobileMenu ${
               menu ? "translate-x-0" : " -translate-x-full"
-            }  md:hidden z-20 rounded-lg text-white flex flex-col  bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+            }  md:hidden z-20 rounded-lg text-white justify-start flex-1   flex flex-col p-4 h-screen bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full  transition-transform duration-300`}
             // ref={menuRef}
           >
-            <nav className=" border-dashed  md:flex gap-5 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
+            <nav className=" border-dashed  md:flex gap-6 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
               {data.map(([title, url], id) => (
                 // earlier i was using id in ([title ,url, id,])
                 <div className="link leading-10  " key={id}>

@@ -25,6 +25,8 @@ import MediaPosts from "./pages/MediaPosts";
 import { useUser, RedirectToSignIn } from "@clerk/clerk-react";
 import Starter from "./components/Starter";
 import MatchGame from "./pages/MatchGame";
+import BookApi from "./pages/BookApi";
+import MoveToList from "./pages/MoveToLists";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -87,6 +89,8 @@ function App() {
         { path: "/photo", element: <DisplayPhotos /> },
         { path: "/media", element: <MediaPosts /> },
         { path: "/match", element: <MatchGame /> },
+        { path: "/arjun", element: <BookApi /> },
+        { path: "/move", element: <MoveToList /> },
 
         // earlier i was usign <sidebar/> if layout whole layout will be visible withing it  so in the child it was showing entire sidebar inside it
       ],

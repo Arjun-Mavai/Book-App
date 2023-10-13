@@ -9,10 +9,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans'],
+        inter: ['Inter var experimental', 'sans'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')({
+      className: 'wysiwyg',
+    }),
+  ],
 }
 

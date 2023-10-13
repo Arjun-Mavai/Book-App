@@ -243,3 +243,44 @@ Here's a simplified flow:
 - **Performance**: Can be optimized using `React.memo`.
 
 I hope this deep dive helps you understand the intricacies of this `Typewriter` component and React hooks in general! 📘🔍
+
+# online offline code 
+To display whether the user is online or offline in a React component with Tailwind CSS, you can use the `isOnline` variable to conditionally render text or styles. Here's a simple example:
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+const App = () => {
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const updateOnlineStatus = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    return () => {
+      window.removeEventListener('online', updateOnlineStatus);
+      window.removeEventListener('offline', updateOnlineStatus);
+    };
+  }, []);
+
+  return (
+    <div className="text-center">
+      {isOnline ? (
+        <p className="text-green-500 font-bold">You are online</p>
+      ) : (
+        <p className="text-red-500 font-bold">You are offline</p>
+      )}
+    </div>
+  );
+};
+
+export default App;
+```
+
+In this code, we use the `useState` hook to track the `isOnline` state. We also use the `useEffect` hook to add event listeners for the `'online'` and `'offline'` events. When the user's online status changes, the `updateOnlineStatus` function is called, and we update the `isOnline` state accordingly.
+
+The component then renders a message in green if the user is online and in red if they are offline, using Tailwind CSS for styling. The user's online status is determined by `navigator.onLine`.

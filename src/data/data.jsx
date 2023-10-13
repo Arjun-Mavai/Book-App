@@ -10,6 +10,8 @@ const data = [
   ["Gallery", "/photo"],
   ["MediaPosts", "/media"],
   ["MatchGame", "/match"],
+  ["Arjun-API", "/arjun"],
+  ["List-Transfer", "/move"],
 ];
 
 export default data;
