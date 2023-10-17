@@ -114,7 +114,7 @@ const Sidebar = () => {
             </div>
           ))}
         </nav>
-        <div className="flex md:hidden    " onClick={handleChange}>
+        <div className="flex  md:hidden    " onClick={handleChange}>
           <div className="z-30">
             {!menu ? (
               <AiOutlineMenu size={32} />
@@ -127,9 +127,9 @@ const Sidebar = () => {
             {/* intially menu false so showing close icon so i did !menu toggled it */}
           </div>
           <div
-            className={`mobileMenu ${
+            className={`  mobileMenu ${
               menu ? "translate-x-0" : " -translate-x-full"
-            }  md:hidden z-20 rounded-lg text-white justify-start flex-1   flex flex-col p-4 h-screen bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full  transition-transform duration-300`}
+            }  md:hidden z-10 rounded-lg text-white justify-start flex-1   flex flex-col p-4 h-screen bg-gradient-to-r from-rose-400 to-teal-500     font-extrabold absolute   left-0 top-200   text-2xl text-center pt-8 pb-4 gap-8 w-full  transition-transform duration-300`}
             // ref={menuRef}
           >
             <nav className=" border-dashed  md:flex gap-6 font-medium p-1 cursor-pointer leading-6 tracking-widest ">
@@ -145,7 +145,18 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <span className="text-3xl font-semibold mb-1">Hi I'm Arjun Gurjar </span>{" "}
+      <div className="relative ">
+        <img
+          src="./camp.svg"
+          alt="logo"
+          width={24}
+          height={24}
+          className="absolute top-[-17px] left-[-5px]"
+        />
+        <span className="text-3xl font-semibold mb-1">
+          Hi I'm Arjun Gurjar{" "}
+        </span>{" "}
+      </div>
       <br />
       <TypeAnimation
         sequence={[
